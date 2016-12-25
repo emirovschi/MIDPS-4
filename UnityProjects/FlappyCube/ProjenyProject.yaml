@@ -3,3 +3,6 @@ AssetsFolder:
 - FlappyCube
 PluginsFolder:
 - Zenject
+SolutionProjects:
+- FlappyCube
+- Zenject

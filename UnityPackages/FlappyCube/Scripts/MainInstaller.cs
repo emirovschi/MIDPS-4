@@ -1,9 +1,11 @@
+using ModestTree;
 using UnityEngine;
 using Zenject;
 
 public class MainInstaller : MonoInstaller<MainInstaller>
 {
     public Player Player;
+    public Killer[] Killers;
 
     public override void InstallBindings()
     {
@@ -22,6 +24,16 @@ public class MainInstaller : MonoInstaller<MainInstaller>
         Container.BindSignal<AddScoreSignal>();
 
         Container.Bind<ITickable>().To<PlayerController>().AsSingle();
-        Container.Bind<IPlayer>().FromInstance(Player);
+        Container.BindAllInterfacesAndSelf<Player>().FromInstance(Player);
+        
+        Container.BindSignal<DeathSignal>();
+        Killers.ForEach(k => AddKillerController(k));
+    }
+
+    private void AddKillerController(IKiller killer)
+    {
+        Container.Bind<KillerController>()
+            .FromMethod(ctx => new KillerController(killer, ctx.Container.Resolve<DeathSignal>()))
+            .NonLazy();
     }
 }

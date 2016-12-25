@@ -277,6 +277,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 1972935369}
+  Killers:
+  - {fileID: 313477493}
+  - {fileID: 1770923782}
 --- !u!114 &271875156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -320,6 +323,7 @@ GameObject:
   - 33: {fileID: 313477491}
   - 64: {fileID: 313477490}
   - 23: {fileID: 313477489}
+  - 114: {fileID: 313477493}
   m_Layer: 0
   m_Name: Floor
   m_TagString: Untagged
@@ -388,6 +392,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
+--- !u!114 &313477493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 313477488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0611f72300597d428be204a24885b73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &347166841
 GameObject:
   m_ObjectHideFlags: 0
@@ -494,6 +509,7 @@ GameObject:
   - 33: {fileID: 1770923780}
   - 64: {fileID: 1770923779}
   - 23: {fileID: 1770923778}
+  - 114: {fileID: 1770923782}
   m_Layer: 0
   m_Name: Roof
   m_TagString: Untagged
@@ -562,6 +578,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
+--- !u!114 &1770923782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1770923777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0611f72300597d428be204a24885b73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1784126273
 GameObject:
   m_ObjectHideFlags: 0

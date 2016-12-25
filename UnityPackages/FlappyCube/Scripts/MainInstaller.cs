@@ -13,5 +13,8 @@ public class MainInstaller : MonoInstaller<MainInstaller>
         {
             Container.Bind<IControls>().To<KeyboardControls>().AsSingle();
         }
+
+        Container.Bind<IGame>().To<Game>().AsSingle();
+        Container.Bind<ITickable>().To<GameStarter>().AsSingle();
     }
 }

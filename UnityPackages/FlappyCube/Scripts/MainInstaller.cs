@@ -20,6 +20,7 @@ public class MainInstaller : MonoInstaller<MainInstaller>
 
         Container.Bind<IGame>().To<Game>().AsSingle();
         Container.Bind<ITickable>().To<GameStarter>().AsSingle();
+        Container.Bind<GameEnder>().NonLazy();
         Container.BindSignal<GameStartSignal>();
         Container.BindSignal<AddScoreSignal>();
 

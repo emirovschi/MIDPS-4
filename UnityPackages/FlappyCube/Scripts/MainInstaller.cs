@@ -3,6 +3,8 @@ using Zenject;
 
 public class MainInstaller : MonoInstaller<MainInstaller>
 {
+    public Player Player;
+
     public override void InstallBindings()
     {
         if (Application.isMobilePlatform)
@@ -18,5 +20,8 @@ public class MainInstaller : MonoInstaller<MainInstaller>
         Container.Bind<ITickable>().To<GameStarter>().AsSingle();
         Container.BindSignal<GameStartSignal>();
         Container.BindSignal<AddScoreSignal>();
+
+        Container.Bind<ITickable>().To<PlayerController>().AsSingle();
+        Container.Bind<IPlayer>().FromInstance(Player);
     }
 }

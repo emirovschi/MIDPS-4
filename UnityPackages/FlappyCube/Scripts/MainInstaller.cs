@@ -1,8 +1,17 @@
+using UnityEngine;
 using Zenject;
 
 public class MainInstaller : MonoInstaller<MainInstaller>
 {
     public override void InstallBindings()
     {
+        if (Application.isMobilePlatform)
+        {
+            Container.Bind<IControls>().To<TouchControls>().AsSingle();
+        }
+        else
+        {
+            Container.Bind<IControls>().To<KeyboardControls>().AsSingle();
+        }
     }
 }

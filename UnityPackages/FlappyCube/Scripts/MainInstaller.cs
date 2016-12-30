@@ -29,5 +29,9 @@ public class MainInstaller : MonoInstaller<MainInstaller>
         Container.BindAllInterfaces<PlayerController>().To<PlayerController>().AsSingle();
         
         Container.BindSignal<DeathSignal>();
+
+        Container.Bind<IObstacle>().FromPrefab(Obstacle).WhenInjectedInto<ObstacleController>();
+        Container.Bind<ObstacleController>();
+        Container.Bind<IFactory<ObstacleController>>().To<ControllerFactory<ObstacleController, IObstacle>>().AsSingle();
     }
 }

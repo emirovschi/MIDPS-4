@@ -10,7 +10,7 @@ public class GameEnder : IDisposable
         this.deathSignal = deathSignal + Restart;
     }
 
-    private void Restart(IKiller killer)
+    private void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }

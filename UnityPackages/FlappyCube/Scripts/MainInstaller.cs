@@ -1,11 +1,11 @@
 using System;
 using UnityEngine;
 using Zenject;
+using Object = UnityEngine.Object;
 
 public class MainInstaller : MonoInstaller<MainInstaller>
 {
     public Player Player;
-    public Killer[] Killers;
     public Object Obstacle;
 
     public override void InstallBindings()
@@ -29,13 +29,5 @@ public class MainInstaller : MonoInstaller<MainInstaller>
         Container.BindAllInterfaces<PlayerController>().To<PlayerController>().AsSingle();
         
         Container.BindSignal<DeathSignal>();
-        Killers.ForEach(k => AddKillerController(k));
-    }
-
-    private void AddKillerController(IKiller killer)
-    {
-        Container.Bind<KillerController>()
-            .FromMethod(ctx => new KillerController(killer, ctx.Container.Resolve<DeathSignal>()))
-            .NonLazy();
     }
 }

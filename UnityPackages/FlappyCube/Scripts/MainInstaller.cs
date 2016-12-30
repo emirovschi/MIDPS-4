@@ -1,4 +1,4 @@
-using ModestTree;
+using System;
 using UnityEngine;
 using Zenject;
 
@@ -19,14 +19,14 @@ public class MainInstaller : MonoInstaller<MainInstaller>
             Container.Bind<IControls>().To<KeyboardControls>().AsSingle();
         }
 
-        Container.Bind<IGame>().To<Game>().AsSingle();
+        Container.BindAllInterfaces<Game>().To<Game>().AsSingle();
         Container.Bind<ITickable>().To<GameStarter>().AsSingle();
-        Container.Bind<GameEnder>().NonLazy();
+        Container.Bind<IDisposable>().To<GameEnder>().AsSingle();
         Container.BindSignal<GameStartSignal>();
         Container.BindSignal<AddScoreSignal>();
 
-        Container.Bind<IPlayer>().FromInstance(Player).WhenInjectedInto<PlayerController>();
-        Container.Bind<ITickable>().To<PlayerController>().AsSingle();
+        Container.BindAllInterfacesAndSelf<Player>().FromInstance(Player);
+        Container.BindAllInterfaces<PlayerController>().To<PlayerController>().AsSingle();
         
         Container.BindSignal<DeathSignal>();
         Killers.ForEach(k => AddKillerController(k));

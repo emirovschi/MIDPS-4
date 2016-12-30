@@ -1,30 +1,27 @@
 ﻿using System;
 using Zenject;
 
-public class PlayerController : ITickable, IDisposable
+public class PlayerController : Controller<IPlayer>, ITickable, IDisposable
 {
-    private IPlayer player;
-    private IControls controls;
-    private GameStartSignal gameStartSignal;
+    private readonly IControls controls;
+    private readonly GameStartSignal gameStartSignal;
 
-    [Inject]
-    public void Initialize(IPlayer player, IControls controls, GameStartSignal gameStartSignal)
+    public PlayerController(IPlayer view, IControls controls, GameStartSignal gameStartSignal) : base(view)
     {
-        this.player = player;
         this.controls = controls;
-        this.gameStartSignal = gameStartSignal + player.Unfreeze;
+        this.gameStartSignal = gameStartSignal + View.Unfreeze;
     }
 
     public void Tick()
     {
         if (controls.IsAction())
         {
-            player.Jump();
+            View.Jump();
         }
     }
 
     public void Dispose()
     {
-        gameStartSignal -= player.Unfreeze;
+        gameStartSignal.Unlisten(View.Unfreeze);
     }
 }

@@ -6,6 +6,7 @@ public class MainInstaller : MonoInstaller<MainInstaller>
 {
     public Player Player;
     public Killer[] Killers;
+    public Object Obstacle;
 
     public override void InstallBindings()
     {
@@ -24,8 +25,8 @@ public class MainInstaller : MonoInstaller<MainInstaller>
         Container.BindSignal<GameStartSignal>();
         Container.BindSignal<AddScoreSignal>();
 
+        Container.Bind<IPlayer>().FromInstance(Player).WhenInjectedInto<PlayerController>();
         Container.Bind<ITickable>().To<PlayerController>().AsSingle();
-        Container.BindAllInterfacesAndSelf<Player>().FromInstance(Player);
         
         Container.BindSignal<DeathSignal>();
         Killers.ForEach(k => AddKillerController(k));

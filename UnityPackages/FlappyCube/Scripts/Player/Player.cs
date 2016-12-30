@@ -1,4 +1,6 @@
-﻿using UnityEngine;public class Player : MonoBehaviour, IPlayer
+﻿using UnityEngine;
+
+public class Player : MonoBehaviour, IPlayer
 {
     public float JumpForce = 15;
     public float TorqueForce = 10;

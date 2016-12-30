@@ -1,4 +1,4 @@
-﻿public interface IPlayer
+﻿public interface IPlayer : IView
 {
     void Unfreeze();
 

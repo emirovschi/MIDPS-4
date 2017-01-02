@@ -1,4 +1,3 @@
-using System;
 using System.Linq;
 using ModestTree;
 using UnityEngine;
@@ -10,6 +9,7 @@ public class MainInstaller : MonoInstaller<MainInstaller>
     public Player Player;
     public Object Obstacle;
     public ScoreLabel ScoreLabel;
+    public EndGameLabel EndGameLabel;
     public ObstacleGeneratorConfiguration[] ObstacleGenerators;
 
     public override void InstallBindings()
@@ -25,7 +25,7 @@ public class MainInstaller : MonoInstaller<MainInstaller>
 
         Container.BindAllInterfaces<Game>().To<Game>().AsSingle();
         Container.Bind<ITickable>().To<GameStarter>().AsSingle();
-        Container.Bind<IDisposable>().To<GameEnder>().AsSingle();
+        Container.BindAllInterfaces<GameEnder>().To<GameEnder>().AsSingle();
         Container.BindSignal<GameStartSignal>();
         Container.BindSignal<AddScoreSignal>();
 
@@ -42,7 +42,10 @@ public class MainInstaller : MonoInstaller<MainInstaller>
         Enumerable.Range(0, ObstacleGenerators.Length).ForEach(i => AddGenerator(i, ObstacleGenerators[i]));
 
         Container.BindAllInterfacesAndSelf<ScoreLabel>().FromInstance(ScoreLabel);
-        Container.BindAllInterfaces<ScoreLabelController>().To<ScoreLabelController>().AsSingle();
+        Container.BindAllInterfacesAndSelf<ScoreLabelController>().To<ScoreLabelController>().AsSingle();
+
+        Container.BindAllInterfacesAndSelf<EndGameLabel>().FromInstance(EndGameLabel);
+        Container.BindAllInterfacesAndSelf<EndGameLabelController>().To<EndGameLabelController>().AsSingle();
     }
 
     private void AddGenerator(int index, ObstacleGeneratorConfiguration configuration)

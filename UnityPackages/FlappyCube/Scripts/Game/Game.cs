@@ -8,6 +8,7 @@ public class Game : IGame, IDisposable, ITickable
 
     private readonly GameStartSignal gameStartSignal;
     private readonly AddScoreSignal addScoreSignal;
+    private readonly DeathSignal deathSignal;
 
     private bool isStarted;
     private int score;
@@ -37,10 +38,11 @@ public class Game : IGame, IDisposable, ITickable
         }
     }
     
-    public Game(GameStartSignal gameStartSignal, AddScoreSignal addScoreSignal)
+    public Game(GameStartSignal gameStartSignal, AddScoreSignal addScoreSignal, DeathSignal deathSignal)
     {
         this.gameStartSignal = gameStartSignal + Start;
         this.addScoreSignal = addScoreSignal + AddScore;
+        this.deathSignal = deathSignal + Stop;
     }
 
     private void Start()
@@ -51,6 +53,11 @@ public class Game : IGame, IDisposable, ITickable
     private void AddScore()
     {
         score++;
+    }
+
+    private void Stop()
+    {
+        isStarted = false;
     }
 
     public void Tick()
@@ -65,5 +72,6 @@ public class Game : IGame, IDisposable, ITickable
     {
         gameStartSignal.Unlisten(Start);
         addScoreSignal.Unlisten(AddScore);
+        deathSignal.Unlisten(Stop);
     }
 }

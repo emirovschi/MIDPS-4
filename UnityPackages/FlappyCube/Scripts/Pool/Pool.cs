@@ -29,13 +29,13 @@ public class Pool<TC, TV> : IPool<TC, TV> where TC : Controller<TV> where TV : I
 
     private TC TurnOn(TC controller)
     {
-        //controller.View.Show();
+        controller.View.Show();
         return controller;
     }
 
     private TC TurnOff(TC controller)
     {
-        //controller.View.Hide();
+        controller.View.Hide();
         return controller;
     }
 }

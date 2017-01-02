@@ -12,6 +12,9 @@ public class ObstacleGeneratorConfiguration : MonoBehaviour, IObstacleGeneratorC
     private int totalObstacles;
 
     [SerializeField]
+    private int startDistance;
+
+    [SerializeField]
     private GameObject buffer;
 
     public int Layer
@@ -35,6 +38,14 @@ public class ObstacleGeneratorConfiguration : MonoBehaviour, IObstacleGeneratorC
         get
         {
             return totalObstacles;
+        }
+    }
+
+    public int StartDistance
+    {
+        get
+        {
+            return startDistance;
         }
     }
 

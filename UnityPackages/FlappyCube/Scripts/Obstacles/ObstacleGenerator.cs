@@ -19,6 +19,7 @@ public class ObstacleGenerator : ITickable
         this.pool = pool;
         this.game = game;
         this.configuration = configuration;
+        spawnedObstacles = configuration.StartDistance;
         obstacles = new Queue<ObstacleController>();
         random = new Random();
     }

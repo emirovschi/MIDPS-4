@@ -1,3 +1,8 @@
 ProjectSettingsPath: '[ProjectRoot]/ProjectSettings'
+AssetsFolder:
+- FlappyCube
 PluginsFolder:
+- Zenject
+SolutionProjects:
+- FlappyCube
 - Zenject

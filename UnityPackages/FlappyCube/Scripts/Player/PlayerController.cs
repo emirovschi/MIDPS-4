@@ -20,6 +20,11 @@ public class PlayerController : Controller<IPlayer>, ITickable, IDisposable
         }
     }
 
+    public void Fracture()
+    {
+        View.Fracture();
+    }
+
     public void Dispose()
     {
         gameStartSignal.Unlisten(View.Unfreeze);

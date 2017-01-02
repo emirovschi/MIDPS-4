@@ -12,17 +12,19 @@ public class GameEnder : IDisposable, ITickable
     private readonly DeathSignal deathSignal;
     private readonly ScoreLabelController scoreLabel;
     private readonly EndGameLabelController endGameLabel;
+    private readonly PlayerController player;
 
     private bool ended;
 
     public GameEnder(IGame game, IControls controls, DeathSignal deathSignal,
-        ScoreLabelController scoreLabel, EndGameLabelController endGameLabel)
+        ScoreLabelController scoreLabel, EndGameLabelController endGameLabel, PlayerController player)
     {
         this.game = game;
         this.controls = controls;
         this.deathSignal = deathSignal + Restart;
         this.scoreLabel = scoreLabel;
         this.endGameLabel = endGameLabel;
+        this.player = player;
     }
 
     private void Restart()
@@ -34,6 +36,7 @@ public class GameEnder : IDisposable, ITickable
 
         scoreLabel.View.Hide();
         endGameLabel.SetScore(game.Score, PlayerPrefs.GetInt(ScoreKey));
+        player.Fracture();
         ended = true;
     }
 

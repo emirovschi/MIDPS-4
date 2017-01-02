@@ -1,10 +1,17 @@
-﻿using System;public class Game : IGame, IDisposable
+﻿using System;
+using UnityEngine;
+using Zenject;
+
+public class Game : IGame, IDisposable, ITickable
 {
+    private const float Speed = 10;
+
     private readonly GameStartSignal gameStartSignal;
     private readonly AddScoreSignal addScoreSignal;
 
     private bool isStarted;
     private int score;
+    private float distance;
 
     public bool IsStarted
     {
@@ -19,6 +26,14 @@
         get
         {
             return score;
+        }
+    }
+
+    public float Distance
+    {
+        get
+        {
+            return distance;
         }
     }
     
@@ -36,6 +51,14 @@
     private void AddScore()
     {
         score++;
+    }
+
+    public void Tick()
+    {
+        if (isStarted)
+        {
+            distance += Time.deltaTime * Speed;
+        }
     }
 
     public void Dispose()

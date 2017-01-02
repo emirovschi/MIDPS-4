@@ -1,4 +1,6 @@
 using System;
+using System.Linq;
+using ModestTree;
 using UnityEngine;
 using Zenject;
 using Object = UnityEngine.Object;
@@ -7,6 +9,7 @@ public class MainInstaller : MonoInstaller<MainInstaller>
 {
     public Player Player;
     public Object Obstacle;
+    public ObstacleGeneratorConfiguration[] ObstacleGenerators;
 
     public override void InstallBindings()
     {
@@ -31,7 +34,20 @@ public class MainInstaller : MonoInstaller<MainInstaller>
         Container.BindSignal<DeathSignal>();
 
         Container.Bind<IObstacle>().FromPrefab(Obstacle).WhenInjectedInto<ObstacleController>();
-        Container.Bind<ObstacleController>();
-        Container.Bind<IFactory<ObstacleController>>().To<ControllerFactory<ObstacleController, IObstacle>>().AsSingle();
+        Container.BindFactory<ObstacleController, ControllerFactory<ObstacleController, IObstacle>>();
+
+        Container.Bind<IPool<ObstacleController, IObstacle>>().To<Pool<ObstacleController, IObstacle>>().AsSingle();
+
+        Enumerable.Range(0, ObstacleGenerators.Length).ForEach(i => AddGenerator(i, ObstacleGenerators[i]));
+    }
+
+    private void AddGenerator(int index, ObstacleGeneratorConfiguration configuration)
+    {
+        string id = "obstacleGenerator" + index;
+        Container.Bind<ITickable>().To<ObstacleGenerator>().AsSingle(id);
+        Container.Bind<IObstacleGeneratorConfiguration>()
+            .FromInstance(configuration)
+            .AsSingle()
+            .When(c => c.ConcreteIdentifier.ToString().Equals(id));
     }
 }

@@ -2,13 +2,37 @@ using UnityEngine;
 
 public class ObstacleController : Controller<IObstacle>
 {
-	public ObstacleController(IObstacle view) : base(view)
+    private const float Space = 10f;
+    private const float Size = 6f;
+    private const float LayerSpace = 7.5f;
+
+    private readonly IGame game;
+    private float position;
+
+	public ObstacleController(IGame game, IObstacle view) : base(view)
 	{
+	    this.game = game;
 	}
 
-	public void Init(int layer, int position, float height)
+	public void Init(GameObject buffer, int layer, int position, float height)
     {
-        View.SetPosition(new Vector3(position * 5, height * 2.5f, layer * 7.5f));
+        this.position = position * Space;
+
+        View.SetParent(buffer);
+        View.SetPosition(new Vector3(this.position - game.Distance, height * Size, layer * LayerSpace));
+	}
+
+    public float GetPosition()
+    {
+        return position;
+    }
+
+    public void Move()
+    {
+        if (View.Enabled && game.IsStarted)
+        {
+            View.Move(GetPosition() - game.Distance);
+        }
     }
 }
 

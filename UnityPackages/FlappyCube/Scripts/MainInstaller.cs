@@ -9,6 +9,7 @@ public class MainInstaller : MonoInstaller<MainInstaller>
 {
     public Player Player;
     public Object Obstacle;
+    public ScoreLabel ScoreLabel;
     public ObstacleGeneratorConfiguration[] ObstacleGenerators;
 
     public override void InstallBindings()
@@ -39,6 +40,9 @@ public class MainInstaller : MonoInstaller<MainInstaller>
         Container.Bind<IPool<ObstacleController, IObstacle>>().To<Pool<ObstacleController, IObstacle>>().AsSingle();
 
         Enumerable.Range(0, ObstacleGenerators.Length).ForEach(i => AddGenerator(i, ObstacleGenerators[i]));
+
+        Container.BindAllInterfacesAndSelf<ScoreLabel>().FromInstance(ScoreLabel);
+        Container.BindAllInterfaces<ScoreLabelController>().To<ScoreLabelController>().AsSingle();
     }
 
     private void AddGenerator(int index, ObstacleGeneratorConfiguration configuration)

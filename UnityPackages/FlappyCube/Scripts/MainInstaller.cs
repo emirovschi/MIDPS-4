@@ -30,7 +30,7 @@ public class MainInstaller : MonoInstaller<MainInstaller>
         Container.BindSignal<AddScoreSignal>();
 
         Container.BindAllInterfacesAndSelf<Player>().FromInstance(Player);
-        Container.BindAllInterfaces<PlayerController>().To<PlayerController>().AsSingle();
+        Container.BindAllInterfacesAndSelf<PlayerController>().To<PlayerController>().AsSingle();
         
         Container.BindSignal<DeathSignal>();
 

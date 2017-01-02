@@ -1,0 +1,177 @@
+fileFormatVersion: 2
+guid: acd9a1702a566e547875d72a1536e898
+timeCreated: 1483378080
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Cube.067
+    100002: Cube.068
+    100004: Cube.070
+    100006: Cube.071
+    100008: Cube.073
+    100010: Cube.074
+    100012: Cube.076
+    100014: Cube.077
+    100016: Cube.079
+    100018: Cube.080
+    100020: Cube.082
+    100022: Cube.083
+    100024: Cube.085
+    100026: Cube.086
+    100028: Cube.088
+    100030: Cube.089
+    100032: Cube.091
+    100034: Cube.092
+    100036: Cube.094
+    100038: Cube.095
+    100040: //RootNode
+    400000: Cube.067
+    400002: Cube.068
+    400004: Cube.070
+    400006: Cube.071
+    400008: Cube.073
+    400010: Cube.074
+    400012: Cube.076
+    400014: Cube.077
+    400016: Cube.079
+    400018: Cube.080
+    400020: Cube.082
+    400022: Cube.083
+    400024: Cube.085
+    400026: Cube.086
+    400028: Cube.088
+    400030: Cube.089
+    400032: Cube.091
+    400034: Cube.092
+    400036: Cube.094
+    400038: Cube.095
+    400040: //RootNode
+    2300000: Cube.067
+    2300002: Cube.068
+    2300004: Cube.070
+    2300006: Cube.071
+    2300008: Cube.073
+    2300010: Cube.074
+    2300012: Cube.076
+    2300014: Cube.077
+    2300016: Cube.079
+    2300018: Cube.080
+    2300020: Cube.082
+    2300022: Cube.083
+    2300024: Cube.085
+    2300026: Cube.086
+    2300028: Cube.088
+    2300030: Cube.089
+    2300032: Cube.091
+    2300034: Cube.092
+    2300036: Cube.094
+    2300038: Cube.095
+    3300000: Cube.067
+    3300002: Cube.068
+    3300004: Cube.070
+    3300006: Cube.071
+    3300008: Cube.073
+    3300010: Cube.074
+    3300012: Cube.076
+    3300014: Cube.077
+    3300016: Cube.079
+    3300018: Cube.080
+    3300020: Cube.082
+    3300022: Cube.083
+    3300024: Cube.085
+    3300026: Cube.086
+    3300028: Cube.088
+    3300030: Cube.089
+    3300032: Cube.091
+    3300034: Cube.092
+    3300036: Cube.094
+    3300038: Cube.095
+    4300000: Cube.095
+    4300002: Cube.094
+    4300004: Cube.092
+    4300006: Cube.091
+    4300008: Cube.089
+    4300010: Cube.088
+    4300012: Cube.086
+    4300014: Cube.085
+    4300016: Cube.083
+    4300018: Cube.082
+    4300020: Cube.080
+    4300022: Cube.079
+    4300024: Cube.077
+    4300026: Cube.076
+    4300028: Cube.074
+    4300030: Cube.073
+    4300032: Cube.071
+    4300034: Cube.070
+    4300036: Cube.068
+    4300038: Cube.067
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.5
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 0
+    normalImportMode: 1
+    tangentImportMode: 3
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

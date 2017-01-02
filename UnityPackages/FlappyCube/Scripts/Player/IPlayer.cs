@@ -3,4 +3,6 @@
     void Unfreeze();
 
     void Jump();
+
+    void Fracture();
 }

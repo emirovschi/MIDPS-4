@@ -124,6 +124,8 @@ MonoBehaviour:
   Obstacle: {fileID: 1000012234138580, guid: c45d7c5876ed754489569622408c0dc7, type: 2}
   ObstacleGenerators:
   - {fileID: 862402360}
+  - {fileID: 925745157}
+  - {fileID: 1707121778}
 --- !u!114 &271875156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -283,7 +285,7 @@ Transform:
   - {fileID: 1826241533}
   - {fileID: 1183707270}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &862402358
 GameObject:
@@ -326,10 +328,55 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   layer: 0
-  pastDistance: 10
+  pastDistance: 20
   totalObstacles: 5
   startDistance: 3
   buffer: {fileID: 862402358}
+--- !u!1 &925745156
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 925745158}
+  - component: {fileID: 925745157}
+  m_Layer: 0
+  m_Name: Obstacles2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &925745157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 925745156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24daccef7d485d9469f92537536a189d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layer: 1
+  pastDistance: 30
+  totalObstacles: 7
+  startDistance: -5
+  buffer: {fileID: 925745156}
+--- !u!4 &925745158
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 925745156}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1183707269
 GameObject:
   m_ObjectHideFlags: 0
@@ -583,6 +630,51 @@ Light:
   m_BounceIntensity: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1 &1707121777
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1707121779}
+  - component: {fileID: 1707121778}
+  m_Layer: 0
+  m_Name: Obstacles3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1707121778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1707121777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24daccef7d485d9469f92537536a189d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layer: 2
+  pastDistance: 40
+  totalObstacles: 10
+  startDistance: -5
+  buffer: {fileID: 1707121777}
+--- !u!4 &1707121779
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1707121777}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1770923777
 GameObject:
   m_ObjectHideFlags: 0
@@ -1074,7 +1166,7 @@ Transform:
   m_LocalScale: {x: 15, y: 1, z: 5}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1 &2083934348
 GameObject:

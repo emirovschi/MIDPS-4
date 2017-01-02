@@ -8,6 +8,7 @@ public class ObstacleController : Controller<IObstacle>
 
     private readonly IGame game;
     private float position;
+    private float layerSpace;
 
 	public ObstacleController(IGame game, IObstacle view) : base(view)
 	{
@@ -17,9 +18,10 @@ public class ObstacleController : Controller<IObstacle>
 	public void Init(GameObject buffer, int layer, int position, float height)
     {
         this.position = position * Space;
+	    this.layerSpace = layer*Space/3;
 
         View.SetParent(buffer);
-        View.SetPosition(new Vector3(this.position - game.Distance, height * Size, layer * LayerSpace));
+        View.SetPosition(new Vector3(this.position - game.Distance + layerSpace, height * Size, layer * LayerSpace));
 	}
 
     public float GetPosition()
@@ -31,7 +33,7 @@ public class ObstacleController : Controller<IObstacle>
     {
         if (View.Enabled && game.IsStarted)
         {
-            View.Move(GetPosition() - game.Distance);
+            View.Move(GetPosition() - game.Distance + layerSpace);
         }
     }
 }

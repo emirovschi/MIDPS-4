@@ -47,7 +47,6 @@ public class MainInstaller : MonoInstaller<MainInstaller>
         Container.Bind<ITickable>().To<ObstacleGenerator>().AsSingle(id);
         Container.Bind<IObstacleGeneratorConfiguration>()
             .FromInstance(configuration)
-            .AsSingle()
             .When(c => c.ConcreteIdentifier.ToString().Equals(id));
     }
 }
